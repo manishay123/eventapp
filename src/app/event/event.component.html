@@ -1,0 +1,63 @@
+<!-- <div *ngFor="let event of events.events">
+  <h2>{{ event.type }}</h2>
+     <p>ID: {{ event.id }}</p>
+  <p>Date: {{ event.datetime_utc }}</p>
+ 
+  <div *ngIf="event.venue">
+    <h3>Venue</h3>
+       <p>Name: {{ event.venue.name }}</p>
+    <p>Capacity: {{ event.venue.capacity }}</p>
+      <p>Country: {{ event.venue.country }}</p>
+  </div>
+ 
+  <div *ngIf="event.performers && event.performers.length > 0">
+    <h3>Performers</h3>
+    <ul>
+      <li *ngFor="let performer of event.performers">
+        <p>Score: {{ performer.score }}</p>
+          <p>Name: {{ performer.name }}</p>
+      </li>
+    </ul>
+  </div>
+</div> -->
+<div class="container mt-2">
+ 
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>ID</th>
+      <th>Date and Time (UTC)</th>
+      <th>Venue</th>
+      <th>Performers</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let event of events.events">
+      <td>{{ event.type }}</td>
+      <td>{{ event.id }}</td>
+      <td>{{ event.datetime_utc }}</td>
+      <td>
+        <ul>
+       <li>Name: {{ event.venue.name }}</li>
+          <li>Capacity: {{ event.venue.capacity }}</li>
+            <li>Country: {{ event.venue.country }}</li>
+        </ul>
+      </td>
+      <td>
+        <ul *ngFor="let performer of event.performers">
+           <li>Name: {{ performer.name }}</li>
+          <li>Score: {{ performer.score }}</li>
+        </ul>
+      </td>
+      <td> <button
+        class="btn btn-warning mx-3"
+       (click)="addEvent(event)"
+      >
+       favlist
+      </button></td>
+    </tr>
+  </tbody>
+</table>
+</div>
